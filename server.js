@@ -3,10 +3,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express();
 
-var myLimit = typeof(process.argv[2]) != 'undefined' ? process.argv[2] : '100kb';
+var myLimit = typeof (process.argv[2]) != 'undefined' ? process.argv[2] : '100kb';
 console.log('Using limit: ', myLimit);
 
-app.use(bodyParser.json({limit: myLimit}));
+app.use(bodyParser.json({ limit: myLimit }));
 
 app.all('*', function (req, res, next) {
 
@@ -26,12 +26,11 @@ app.all('*', function (req, res, next) {
             return;
         }
         // добавлены необходимые по ТЗ headers 'ehd-system': 'opod', 'content-type': 'application/json',
-        request({ url: targetURL + req.url, method: req.method, json: req.body, headers: {'ehd-system': 'opod', 'content-type': 'application/json',   } },
+        request({ url: targetURL + req.url, method: req.method, json: req.body, headers: { 'ehd-system': 'opod', 'content-type': 'application/json', } },
             function (error, response, body) {
                 if (error) {
                     console.error('error: ' + response.statusCode)
-                }
-//                console.log(body);
+                }               
             }).pipe(res);
     }
 });
