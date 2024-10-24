@@ -1,8 +1,10 @@
 import './App.css';
+import '@fontsource/roboto/400.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from './Table.js';
 import PieChart from './PieChart.js';
+
 
 function App() {
 
@@ -11,8 +13,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
 
-      try {
-        // const axios = require('axios');
+      try {       
         let data = JSON.stringify({
           "id": 403,
           "offset": 0,
@@ -36,8 +37,6 @@ function App() {
           data: data
         };
 
-
-
         const response = await axios.request(
           config
         );
@@ -55,8 +54,6 @@ function App() {
 
     fetchData();
   }, []);
-
-
 
   const aggregateData = (data) => {
     let aggregated = data.reduce((acc, item) => {
@@ -78,8 +75,6 @@ function App() {
   return (
     <div className="App">
       <main>
-
-
         {data ?
           <>
             <h2>Загруженность парковочных мест по району</h2>
@@ -87,8 +82,6 @@ function App() {
             <PieChart data={data} />
           </>
           : <h2>"Loading..."</h2>}
-
-
       </main>
     </div>
   );

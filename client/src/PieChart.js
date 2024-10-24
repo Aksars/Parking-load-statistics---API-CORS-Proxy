@@ -39,8 +39,7 @@ export default function PieChart({ data }) {
                 },
                 align: "center",
             },
-        }
-        
+        }        
     }
 
     const chartData = {
@@ -69,6 +68,7 @@ export default function PieChart({ data }) {
             ]
         };
 
+        // Добавляем отступ к ленегде, справа
         const plugin = {
             beforeInit: function (chart) {
               // Get reference to the original fit function

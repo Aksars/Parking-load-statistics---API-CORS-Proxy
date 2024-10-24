@@ -1,8 +1,6 @@
+import './Table.css';
 
-import './table.css';
-
-function Table({ data }) {
-   
+function Table({ data }) {   
 
     return (
         <div className="table-component">     
@@ -21,10 +19,7 @@ function Table({ data }) {
                         </tr>
                     ))}
                 </tbody>
-            </table>
-           
-
-           
+            </table>             
         </div>
     );
 }
