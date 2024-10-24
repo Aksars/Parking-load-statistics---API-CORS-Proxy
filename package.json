@@ -20,8 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "client": "cd client && set PORT=3006 && react-scripts start",
-    "server": "cd server && node server"   
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "client": "set PORT=3006 && react-scripts start",
+    "server": "node server"    
   },
   "eslintConfig": {
     "extends": [
